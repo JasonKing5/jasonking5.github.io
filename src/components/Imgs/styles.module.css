@@ -1,0 +1,28 @@
+.heroLogo {
+  animation-duration: 2s;
+  animation-name: jack-in-the-box;
+  float: right;
+  margin-top: 20px;
+  /* padding: 0 20px 20px; */
+  height: auto;
+  border-radius: 20px;
+}
+
+.teamContainer {
+  padding: 0 20%;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 996px) {
+  .teamContainer {
+    padding: 0 60px;
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .teamContainer {
+    padding: 0 10px;
+    margin-top: 40px;
+  }
+}
