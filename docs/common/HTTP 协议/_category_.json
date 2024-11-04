@@ -1,0 +1,8 @@
+{
+  "label": "HTTP 协议",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "深入理解 HTTP 协议本质与应用。"
+  }
+}

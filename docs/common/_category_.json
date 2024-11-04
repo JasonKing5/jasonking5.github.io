@@ -1,8 +1,8 @@
 {
-  "label": "Back-end",
+  "label": "Common",
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Back-end"
+    "description": "Common"
   }
 }

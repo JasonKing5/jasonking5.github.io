@@ -100,6 +100,11 @@ const config: Config = {
           label: 'Back-end',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'doc',
+          docId: 'about',
+          label: 'About',
+        },
         // {
         //   type: 'localeDropdown',
         //   position: 'right',
@@ -119,7 +124,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,
-};
+  } satisfies Preset.ThemeConfig,};
 
 export default config;
