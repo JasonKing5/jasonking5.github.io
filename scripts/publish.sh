@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 拉取指定git仓库的代码
-# git clone https://gitee.com/mayuanwei/HMXY.git /tmp/website
+# git clone https://github.com/JasonKing5/jasonking5.github.io.git
 
 # 进入代码目录
-echo "cd /var/repo/HMXY"
-cd /var/repo/HMXY
+echo "cd /var/repo/jasonking5.github.io"
+cd /var/repo/jasonking5.github.io
 
 echo "current pwd:"
 pwd
@@ -25,7 +25,7 @@ sudo npm run build
 
 # 复制构建后的文件到目标目录并强制替换覆盖
 echo "sync website"
-sudo rsync -av --delete /var/repo/HMXY/build/ /var/www/hm.codefe.cn/
+sudo rsync -av --delete /var/repo/jasonking5.github.io/build/ /var/www/codefe.cn/
 
 echo "[SUCCESS] deploy"
 
