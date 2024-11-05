@@ -130,11 +130,7 @@ export default function Home() {
                 efficiency.
               </p>
             </div>
-            <img
-              src="./images/author.jpg"
-              alt="Joson"
-              className={styles.avatar}
-            />
+            <img src="./img/author.jpg" alt="Joson" className={styles.avatar} />
           </Link>
 
           {group.map((item) => (

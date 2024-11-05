@@ -23,6 +23,10 @@ sudo git pull
 echo "sudo npm install && npm run build"
 sudo npm run build
 
+# remove /build/images folder
+echo "rm -rf /var/repo/jasonking5.github.io/build/images"
+sudo rm -rf /var/repo/jasonking5.github.io/build/images
+
 # 复制构建后的文件到目标目录并强制替换覆盖
 echo "sync website"
 sudo rsync -av --delete /var/repo/jasonking5.github.io/build/ /var/www/codefe.cn/
