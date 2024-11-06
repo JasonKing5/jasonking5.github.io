@@ -19,11 +19,11 @@ jobs:
         run: yarn install
       - name: Build project
         run: yarn run build
-      - name: Deploy files via FTP
-        uses: appleboy/ftp-action@master
-        with:
-          host: ${{ secrets.DEPLOY_USERNAME }}
-          username: ${{ secrets.DEPLOY_USERNAME }}
-          password: ${{ secrets.DEPLOY_PASSWORD }}
-          local-dir: build
-          remote-dir: ${{ secrets.DEPLOY_PATH }}
+      # - name: Deploy files via FTP
+      #   uses: appleboy/ftp-action@master
+      #   with:
+      #     host: ${{ secrets.DEPLOY_USERNAME }}
+      #     username: ${{ secrets.DEPLOY_USERNAME }}
+      #     password: ${{ secrets.DEPLOY_PASSWORD }}
+      #     local-dir: build
+      #     remote-dir: ${{ secrets.DEPLOY_PATH }}
