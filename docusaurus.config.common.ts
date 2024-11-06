@@ -100,6 +100,12 @@ const config: Config = {
           position: 'left',
           label: 'Back-end',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'softSidebar',
+          position: 'left',
+          label: 'Soft Power',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'doc',
