@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: start;
   cursor: pointer;
+  flex-direction: column;
 }
 
 .profile:hover {
@@ -24,9 +25,10 @@
 }
 
 .profileInfo {
-  margin-right: 3rem;
-  text-align: left;
-  width: 50%;
+  margin-right: 0;
+  text-align: center;
+  width: 100%;
+  order: 2;
 }
 
 .profileName {
@@ -46,6 +48,7 @@
   border-radius: 50%;
   margin-bottom: 20px;
   border: 3px solid #98deff;
+  order: 1;
 }
 
 .title {
@@ -119,6 +122,20 @@
 
 /* Responsive layout adjustments */
 @media (min-width: 600px) {
+  .profile {
+    flex-direction: row;
+  }
+
+  .profileInfo {
+    margin-right: 3rem;
+    text-align: left;
+    width: 50%;
+    order: 1;
+  }
+
+  .avatar {
+    order: 2;
+  }
   .content {
     max-width: 580px;
     margin: 0 auto;
