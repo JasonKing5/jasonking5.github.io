@@ -102,6 +102,18 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
+          sidebarId: 'aiSidebar',
+          position: 'left',
+          label: 'AI',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'algorithmsSidebar',
+          position: 'left',
+          label: 'Algorithm',
+        },
+        {
+          type: 'docSidebar',
           sidebarId: 'softSidebar',
           position: 'left',
           label: 'Soft Power',
