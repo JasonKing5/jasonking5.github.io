@@ -19,11 +19,17 @@ jobs:
         run: yarn install
       - name: Build project
         run: yarn run build
-      - name: Deploy files via FTP
-        uses: appleboy/ftp-action@master
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy via SSH with password
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
           password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: ${{ secrets.DEPLOY_PORT }}
           local-dir: build
           remote-dir: ${{ secrets.DEPLOY_PATH }}
