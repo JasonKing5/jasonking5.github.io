@@ -1,35 +1,53 @@
+# 名称
 name: Build and Deploy
 
+# 触发方式
 on:
   push:
     branches:
       - main
 
+# 任务
 jobs:
   build:
+    # 运行环境
     runs-on: ubuntu-20.04
     steps:
+        # 代码检查
       - name: Checkout code
         uses: actions/checkout@v2
+        # 环境安装
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "20"
+        # 组件配置
       - name: Install dependencies
         run: yarn install
+        # 构建代码
       - name: Build project
         run: yarn run build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Deploy via SSH with password
+        # sshpass 安装
+      - name: Install sshpass
+        run: apt-get install -y sshpass
+        # 清理临时文件
+      - name: clear temp file
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USERNAME }}
           password: ${{ secrets.DEPLOY_PASSWORD }}
           port: ${{ secrets.DEPLOY_PORT }}
-          # command: "cp -r  /path/to/remote/${{ secrets.DEPLOY_PATH }}"
-          command: "cp -rf ./build/* ${{ secrets.DEPLOY_PATH }}"
+          command: "if [ -d /data/code ] ;then rm -rf /data/code/*; fi"
+        # 远程拷贝
+      - name: remote copy
+        run: sshpass -p "${{ secrets.DEPLOY_PASSWORD }}" scp -o StrictHostKeyChecking=no -r ./build/* ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_HOST }}:/data/code 
+        # 部署
+      - name: deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          command: "cp -rf /data/code/* ${{ secrets.DEPLOY_PATH }}"
