@@ -13,23 +13,23 @@ jobs:
     # 运行环境
     runs-on: ubuntu-20.04
     steps:
-        # 代码检查
-      - name: Checkout code
-        uses: actions/checkout@v2
-        # 环境安装
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "20"
-        # 组件配置
-      - name: Install dependencies
-        run: yarn install
-        # 构建代码
-      - name: Build project
-        run: yarn run build
-        # sshpass 安装
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      #   # 代码检查
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+      #   # 环境安装
+      # - name: Install Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "20"
+      #   # 组件配置
+      # - name: Install dependencies
+      #   run: yarn install
+      #   # 构建代码
+      # - name: Build project
+      #   run: yarn run build
+      #   # sshpass 安装
+      # - name: Install sshpass
+      #   run: sudo apt-get install -y sshpass
         # 清理临时文件
       - name: clear temp file
         uses: appleboy/ssh-action@master
@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USERNAME }}
           password: ${{ secrets.DEPLOY_PASSWORD }}
           port: ${{ secrets.DEPLOY_PORT }}
-          script: "echo ${{ secrets.DEPLOY_PASSWORD }}"
+          script: "echo ${{ secrets.DEPLOY_PASSWORD }} | sudo -S rm -rf /data/code/*"
       #   # 远程拷贝
       # - name: remote copy
       #   run: sudo sshpass -p "${{ secrets.DEPLOY_PASSWORD }}" scp -o StrictHostKeyChecking=no -r ./build/* ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_HOST }}:/data/code 
