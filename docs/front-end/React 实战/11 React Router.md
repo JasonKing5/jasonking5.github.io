@@ -6,7 +6,7 @@
 
 ## 路由实现的基本架构
 
-![](/images/1650897574240-b9e12c4d-f164-415b-a27f-3350e57b3b45.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1650897574240-b9e12c4d-f164-415b-a27f-3350e57b3b45.png)
 
 唯一标识的路由定义，通过 Router 更新到组件容器中。
 

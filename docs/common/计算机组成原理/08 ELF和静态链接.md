@@ -1,5 +1,7 @@
 ## 编译、链接和装载
+
 ### 拆解程序执行
+
 ```c
 // add_lib.c
 int add(int a, int b)
@@ -37,9 +39,9 @@ Disassembly of section .text:
    d:   8b 45 f8                mov    eax,DWORD PTR [rbp-0x8]
   10:   01 d0                   add    eax,edx
   12:   5d                      pop    rbp
-  13:   c3                      ret    
-  
-  
+  13:   c3                      ret
+
+
 link_example.o:     file format elf64-x86-64
 Disassembly of section .text:
 0000000000000000 <main>:
@@ -61,8 +63,8 @@ Disassembly of section .text:
   39:   b8 00 00 00 00          mov    eax,0x0
   3e:   e8 00 00 00 00          call   43 <main+0x43>
   43:   b8 00 00 00 00          mov    eax,0x0
-  48:   c9                      leave  
-  49:   c3                      ret    
+  48:   c9                      leave
+  49:   c3                      ret
 ```
 
 `./link_example.o: Permission denied 错误`
@@ -80,9 +82,10 @@ c = 15
 1. 由编译（Compile）、汇编（Assemble）以及链接（Link）三个阶段，生成可执行文件。
 2. 通过装载器（Loader）把可执行文件装载（Load）到内存中。CPU 从内存中读取指令和数据，开始真正执行程序。
 
-![](/images/1646548715511-dec6f899-9e6e-4539-bf79-01437a89cdea.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1646548715511-dec6f899-9e6e-4539-bf79-01437a89cdea.png)
 
 ## ELF 格式和链接
+
 程序最终是通过装载器变成指令和数据的，生成的可执行代码并不仅仅是一条条的指令。
 
 ```c
@@ -104,7 +107,7 @@ Disassembly of section .text:
  6bd:   8b 45 f8                mov    eax,DWORD PTR [rbp-0x8]
  6c0:   01 d0                   add    eax,edx
  6c2:   5d                      pop    rbp
- 6c3:   c3                      ret    
+ 6c3:   c3                      ret
 00000000000006c4 <main>:
  6c4:   55                      push   rbp
  6c5:   48 89 e5                mov    rbp,rsp
@@ -124,8 +127,8 @@ Disassembly of section .text:
  6fd:   b8 00 00 00 00          mov    eax,0x0
  702:   e8 59 fe ff ff          call   560 <printf@plt>
  707:   b8 00 00 00 00          mov    eax,0x0
- 70c:   c9                      leave  
- 70d:   c3                      ret    
+ 70c:   c9                      leave
+ 70d:   c3                      ret
  70e:   66 90                   xchg   ax,ax
 ...
 Disassembly of section .fini:
@@ -134,19 +137,19 @@ Disassembly of section .fini:
 
 ELF（Execuatable and Linkable File Format）文件格式：Linux 下可执行文件和目标文件所使用的文件格式，里面不仅存放了编译成的汇编指令，还保留了很多别的数据。（函数名称，自定义的全局变量名称）
 
-![](/images/1646549225700-5cf01319-a60d-4c91-b09b-db3ee98b0234.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1646549225700-5cf01319-a60d-4c91-b09b-db3ee98b0234.png)
 
 链接器扫描所有输入的目标文件，把所有符号表里的信息收集起来，构成一个全局的符号表。然后根据重定位表，把所有不确定要跳转地址的代码，根据符号表里面存储的地址进行修正。最后把所有的目标文件的对应段进行一次合并，变成最终的可执行代码。
 
-![](/images/1646549463173-e3cf25c0-9013-492d-8829-53102ac6a7b2.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1646549463173-e3cf25c0-9013-492d-8829-53102ac6a7b2.png)
 
 装载器不再需要考虑地址跳转的问题，只需解析 ELF 文件，把对应的指令和数据，加载到内存里面供 CPU 执行。
 
 ### 操作系统支持
+
 Windows 的可执行文件格式是 PE（Portable Executable Format）的文件格式。Linux 下的装载器只能解析 ELF 格式而不能解析 PE 格式。
 
 提供一个可以能够解析 PE 格式的装载器：
 
-+ 开源项目 Wine
-+ 微软的 WSL
-
+- 开源项目 Wine
+- 微软的 WSL

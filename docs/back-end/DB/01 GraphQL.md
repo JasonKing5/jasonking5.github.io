@@ -159,15 +159,15 @@ export default resolvers;
 
 ## Screenshots
 
-![query](/images/image-2.png)
+![query](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-2.png)
 
-![create user](/images/image-3.png)
+![create user](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-3.png)
 
-![update user](/images/image-4.png)
+![update user](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-4.png)
 
-![delete user](/images/image-5.png)
+![delete user](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-5.png)
 
-![subscription](/images/image-6.png)
+![subscription](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-6.png)
 
 ## 优点
 

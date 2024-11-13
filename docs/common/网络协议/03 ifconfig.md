@@ -1,8 +1,8 @@
 IP 地址是一个网卡在网络世界的通讯地址，相当于现实世界的门牌号码。
 
-![](/images/1649940978134-8dabab9e-39c9-4b6f-993c-e4151d7de736.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1649940978134-8dabab9e-39c9-4b6f-993c-e4151d7de736.png)
 
-![](/images/1649941073869-f7e8f537-df54-4d24-be33-dc6f9bc518d2.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1649941073869-f7e8f537-df54-4d24-be33-dc6f9bc518d2.png)
 
 ```bash
 root@test:~# ip addr

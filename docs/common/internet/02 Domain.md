@@ -4,7 +4,7 @@ Domain names are used to identify computers on the internet. They are used to ma
 
 ## Structure of domain names
 
-![domain name](/images/image-1.png)
+![domain name](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image-1.png)
 
 - TLD: top-level domain, e.g. .com, .org, .net
 - SLD: second-level domain, e.g. google, facebook, twitter

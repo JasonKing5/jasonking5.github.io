@@ -1,4 +1,4 @@
-![](/images/1641616691154-a2b1d883-ff82-4b61-8fb0-30a56512d35f.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1641616691154-a2b1d883-ff82-4b61-8fb0-30a56512d35f.png)
 
 ## Front end
 

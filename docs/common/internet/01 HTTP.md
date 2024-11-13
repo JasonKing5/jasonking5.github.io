@@ -58,7 +58,7 @@ Server: Apache 0.84
 - SYN/ACK - server sends SYN/ACK
 - ACK - client sends ACK
 
-![three-way handshake](/images/image.png)
+![three-way handshake](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/image.png)
 
 :::tip
 Connection: keep-alive

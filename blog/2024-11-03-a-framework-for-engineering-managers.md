@@ -12,7 +12,7 @@ tags: [Management]
 - 找准在当前职业阶梯的期望
 - 规划职业阶梯的下个阶段
 
-![](/images/1662212620577-6fed7937-bd17-47c8-91d3-01e105ae4b73.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1662212620577-6fed7937-bd17-47c8-91d3-01e105ae4b73.png)
 
 <!--truncate-->
 

@@ -10,7 +10,7 @@
 
 [Formik](https://formik.org/) comes with battle-tested solutions for input validation, formatting, masking, arrays, and error handling.
 
-![](/images/1660654148903-b083547b-dd33-4e93-8da7-eb64a60b5e17.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1660654148903-b083547b-dd33-4e93-8da7-eb64a60b5e17.png)
 
 [Demo](https://codesandbox.io/s/dazzling-swanson-wne32?from-embed)
 
@@ -67,7 +67,7 @@ yarn add formik
 
 [CodeSandbox (ReactDOM) ](https://codesandbox.io/s/zKrK5YLDZ?file=/index.js:2102-2120)
 
-![](/images/1660657183117-ce0f4d87-0f90-4c8b-8eb1-a888c2c05932.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1660657183117-ce0f4d87-0f90-4c8b-8eb1-a888c2c05932.png)
 
 ## The Gist
 
@@ -216,7 +216,7 @@ yarn add yup
 
 We'll build a complex newsletter signup form with React and Formik. [Final Result](https://codesandbox.io/s/formik-v2-tutorial-final-ge1pt)
 
-![](/images/1660734765522-415c0d47-3280-4145-aaee-8b07bf93f76f.png)
+![](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1660734765522-415c0d47-3280-4145-aaee-8b07bf93f76f.png)
 
 ### Prerequisites
 

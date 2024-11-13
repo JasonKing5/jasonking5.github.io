@@ -3,7 +3,7 @@
 - 当前事件循环得不到结果，但承诺未来的事件循环会给结果
 - 是一个状态机
 
-![画板](/images/1659272475522-e43a945f-2ce9-4663-9f84-9a2b321d793d.jpeg)
+![画板](https://blog-1252173264.cos.ap-shanghai.myqcloud.com/1659272475522-e43a945f-2ce9-4663-9f84-9a2b321d793d.jpeg)
 
 ## then and catch
 
