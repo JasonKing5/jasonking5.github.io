@@ -1,7 +1,7 @@
 ---
 slug: my-personal-website
 title: My Personal Website
-authors: [jason]
+authors: [Jason]
 tags: [Free talk]
 ---
 

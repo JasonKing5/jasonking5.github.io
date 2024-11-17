@@ -94,36 +94,6 @@ const config: Config = {
           position: 'left',
           label: 'Front-end',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'backendSidebar',
-          position: 'left',
-          label: 'Back-end',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'aiSidebar',
-          position: 'left',
-          label: 'AI',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'algorithmsSidebar',
-          position: 'left',
-          label: 'Algorithm',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'softSidebar',
-          position: 'left',
-          label: 'Soft Power',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          type: 'doc',
-          docId: 'about',
-          label: 'About',
-        },
         // {
         //   type: 'localeDropdown',
         //   position: 'right',
