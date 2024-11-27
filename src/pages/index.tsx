@@ -53,6 +53,11 @@ export default function Home() {
       description: "Front End learning notes",
       items: [
         {
+          name: "Internet",
+          link: "/docs/front-end/internet/00%20Overview/",
+          description: "System understanding of Internet.",
+        },
+        {
           name: "Javascript 进阶实战",
           link: "/docs/front-end/Javascript%20进阶实战/00%20JavaScript进阶之路/",
           description: "系统掌握 JavaScript 知识网络。",
