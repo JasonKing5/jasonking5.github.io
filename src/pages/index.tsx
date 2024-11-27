@@ -85,6 +85,11 @@ export default function Home() {
           description: "新版React使用函数组件Hooks进行高效进阶开发。",
         },
         {
+          name: "React 技术剖析",
+          link: "/docs/front-end/React%20技术剖析/01%20Hook/",
+          description: "深入理解 React 设计模式，常见场景下的编程实战指南。",
+        },
+        {
           name: "依赖库",
           link: "/docs/front-end/依赖库/Formik/",
           description: "web开发常用依赖库介绍。",
