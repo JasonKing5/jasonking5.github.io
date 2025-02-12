@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import CodeEditor from './components/CodeEditor';
-import Visualization from './components/Visualization';
-import AnimationControls from './components/AnimationControls';
-import TestCaseInput from './components/TestCaseInput';
-import type { DataStructureState, AnimationStep, AnimationState } from './types';
-import { algorithms } from './algorithms';
+import CodeEditor from '../../components/Algorithm/components/CodeEditor';
+import Visualization from '../../components/Algorithm/components/Visualization';
+import AnimationControls from '../../components/Algorithm/components/AnimationControls';
+import TestCaseInput from '../../components/Algorithm/components/TestCaseInput';
+import type { DataStructureState, AnimationStep, AnimationState } from '../../components/Algorithm/types';
+import { algorithms } from '../../components/Algorithm/algorithms';
 import './index.css';
 
 const SUPPORTED_LANGUAGES = [
