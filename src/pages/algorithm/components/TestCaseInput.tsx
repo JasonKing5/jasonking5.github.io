@@ -67,7 +67,7 @@ const TestCaseInput: React.FC<TestCaseInputProps> = ({ value, onChange }) => {
       </div>
       <textarea
         value={value.data.join(', ')}
-        onChange={handleInputChange}
+        // onChange={handleInputChange}
         placeholder="输入数字，用逗号或空格分隔（例如：64, 34, 25, 12, 22, 11, 90）"
         className="test-case-input-field"
       />
