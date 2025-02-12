@@ -106,12 +106,13 @@ const config: Config = {
           position: 'left',
           label: 'AI',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'algorithmsSidebar',
-          position: 'left',
-          label: 'Algorithm',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'algorithmsSidebar',
+        //   position: 'left',
+        //   label: 'Algorithms',
+        // },
+        {to: '/algorithm', label: 'Algorithm', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'softSidebar',

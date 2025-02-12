@@ -1,0 +1,436 @@
+/* 算法可视化页面样式 */
+
+/* 算法可视化页面布局 */
+.algorithm-page {
+  display: flex;
+  height: calc(100vh - var(--ifm-navbar-height));
+  overflow: hidden;
+}
+
+/* 左侧菜单 */
+.algorithm-menu {
+  width: 250px;
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.algorithm-menu-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.algorithm-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.algorithm-menu-item {
+  margin: 0.5rem 0;
+}
+
+.algorithm-menu-button {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ifm-button-border-radius);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.algorithm-menu-button:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.algorithm-menu-button.active {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+/* 主要内容区域 */
+.algorithm-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* 代码和控制区域 */
+.code-control-section {
+  width: 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* 语言选择和运行控制 */
+.language-selector {
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.language-select {
+  appearance: none;
+  width: auto;
+  min-width: 120px;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.language-select:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.execute-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.execute-button:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.execute-button:disabled {
+  background: var(--ifm-color-emphasis-300);
+  cursor: not-allowed;
+}
+
+/* 代码编辑器容器 */
+.code-editor-container {
+  margin-bottom: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+  height: 500px;
+}
+
+.code-editor-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+/* 测试数据输入 */
+.test-case-input {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.test-case-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.test-case-input-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.test-case-input-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.test-case-input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  background: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  resize: vertical;
+  min-height: 2.5rem;
+}
+
+/* 动画控制面板 */
+.animation-control-panel {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.animation-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.animation-progress {
+  flex: 1;
+  margin: 0;
+  position: relative;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.animation-progress-bar-container {
+  flex: 1;
+}
+
+.animation-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.animation-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--ifm-color-primary);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.animation-progress-handle {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  box-shadow: 0 0 0 4px var(--ifm-color-emphasis-100);
+}
+
+.animation-progress-handle:active {
+  cursor: grabbing;
+}
+
+.animation-progress-info {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+  white-space: nowrap;
+}
+
+.animation-controls-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.animation-control-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.animation-control-button:hover:not(:disabled) {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.animation-control-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.animation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* 可视化区域 */
+.visualization-section {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 可视化容器 */
+.visualization-container {
+  flex: 1;
+  min-height: 0;
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 柱状图样式 */
+.bar {
+  transition: all 0.3s ease;
+}
+
+.bar-sorted {
+  fill: var(--ifm-color-success);
+}
+
+.bar-value {
+  font-size: 12px;
+  fill: var(--ifm-color-emphasis-700);
+}
+
+.bar-variable {
+  font-size: 12px;
+  fill: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+/* 步骤描述 */
+.step-description {
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* 错误提示 */
+.error-message {
+  background: var(--ifm-color-danger-lightest);
+  border: 1px solid var(--ifm-color-danger-light);
+  color: var(--ifm-color-danger);
+  padding: 1rem;
+  border-radius: var(--ifm-card-border-radius);
+  margin-bottom: 1rem;
+}
+
+/* 响应式布局 */
+@media (max-width: 1200px) {
+  .algorithm-page {
+    flex-direction: column;
+  }
+  
+  .algorithm-menu {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  }
+  
+  .algorithm-content {
+    flex-direction: column;
+  }
+  
+  .code-control-section,
+  .visualization-section {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  }
+}
+
+/* 暗色主题适配 */
+[data-theme='dark'] .algorithm-menu {
+  background: var(--ifm-background-surface-color-dark);
+}
+
+[data-theme='dark'] .algorithm-menu-button:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .language-select {
+  background: var(--ifm-background-surface-color-dark);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .bar-value,
+[data-theme='dark'] .bar-variable {
+  fill: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .error-message {
+  background: var(--ifm-color-danger-darker);
+  border-color: var(--ifm-color-danger-dark);
+  color: var(--ifm-color-danger-lightest);
+}
+
+/* 代码高亮 */
+.highlight-line {
+  background-color: rgba(62, 175, 255, 0.15) !important;
+  border-left: 2px solid var(--ifm-color-primary) !important;
+  width: calc(100% - 2px) !important;
+}
+
+/* 按钮样式美化 */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
