@@ -1,0 +1,118 @@
+.tool-page {
+  padding: 2rem;
+}
+
+.tool-layout {
+  display: flex;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+}
+
+.tool-sidebar {
+  width: 300px;
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-color);
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sidebar-menu {
+  padding: 1rem 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.sidebar-item.active {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.sidebar-item-icon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.sidebar-item-text {
+  flex: 1;
+}
+
+.sidebar-item-text .title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-item-text .description {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.tool-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.tool-welcome {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tool-card {
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tool-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.tool-card p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tool-card-icon {
+  color: var(--ifm-color-primary);
+  font-size: 2rem;
+}

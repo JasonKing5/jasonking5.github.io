@@ -119,6 +119,7 @@ const config: Config = {
           position: 'left',
           label: 'Soft Power',
         },
+        {to: '/tool', label: 'Tool', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'doc',
