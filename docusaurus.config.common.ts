@@ -135,16 +135,31 @@ const config: Config = {
           label: 'Github',
           position: 'right',
         },
+        {
+          type: 'html',
+          value: `<div id="login-button-container">
+                    <div class="login-button-container" style="position: relative; display: inline-block;">
+                      <a href="#" class="login-btn" style="display: flex; align-items: center; justify-content: center; background: white; color: var(--ifm-color-primary); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: all 0.2s; text-decoration: none;" onclick="event.preventDefault(); const user = localStorage.getItem('user'); window.location.href = user ? '/profile' : '/login';" onmouseover="this.style.background='var(--ifm-color-primary)';this.style.color='white';" onmouseout="this.style.background='white';this.style.color='var(--ifm-color-primary)';" onmousedown="this.style.background='var(--ifm-color-primary-darker)';" onmouseup="this.style.background='var(--ifm-color-primary)';">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>`,
+          position: 'right',
+        },
       ],
     },
     footer: {
       style: 'dark',
-      copyright: `ICP备案<a href=" https://beian.miit.gov.cn/" target="_blank" style="margin-left: 5px; margin-right: 20px; color: #b5b5b5">豫ICP备2022004823号-1</a> Copyright © ${new Date().getFullYear()} Code FE`,
+      copyright: `ICP备案<a href=" https://beian.miit.gov.cn/" target="_blank" style="margin-left: 5px; margin-right: 20px; color: #b5b5b5">豫ICP备2022004823号-1</a> Copyright ${new Date().getFullYear()} Code FE`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,};
+  } satisfies Preset.ThemeConfig,
+};
 
 export default config;
