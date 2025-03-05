@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useHistory } from '@docusaurus/router';
-import { FaCode, FaCalculator, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaCode, FaCalculator, FaChevronLeft, FaChevronRight, FaAddressCard } from 'react-icons/fa';
 import { MdApi } from 'react-icons/md';
 import './styles.css';
 
@@ -19,6 +19,13 @@ export const tools: Tool[] = [
     description: '便捷的API测试工具，支持多种请求方式和参数配置',
     icon: <MdApi />,
     path: '/tool/api',
+  },
+  {
+    id: 'personal_info',
+    title: '个人信息管理',
+    description: '管理个人信息，包括姓名、身份证号、手机号等',
+    icon: <FaAddressCard />,
+    path: '/tool/personal_info',
   },
   {
     id: 'smart_finance',
