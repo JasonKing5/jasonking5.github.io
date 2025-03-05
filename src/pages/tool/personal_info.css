@@ -69,14 +69,37 @@ h1::after {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-.info-form-container h2 {
-  margin-top: 0;
-  margin-bottom: 1.25rem;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.section-header h2 {
+  margin: 0;
   font-size: 1.25rem;
   color: var(--ifm-color-emphasis-900);
-  position: relative;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex: 1;
+}
+
+.collapse-button {
+  background: none;
+  border: none;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.collapse-button:hover {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
 }
 
 .info-form {
@@ -184,6 +207,7 @@ h1::after {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--ifm-color-emphasis-200);
+  align-items: center;
 }
 
 .search-box {
@@ -245,62 +269,186 @@ h1::after {
   box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
 }
 
-/* 信息列表样式 */
-.info-list-container {
-  margin-bottom: 2rem;
+/* 视图切换按钮 */
+.view-actions {
+  display: flex;
+  gap: 0.5rem;
 }
 
-.info-list-container h2 {
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
-  color: var(--ifm-color-emphasis-900);
-  position: relative;
-  padding-bottom: 0.5rem;
+.view-button {
+  background: var(--ifm-color-emphasis-200);
+  border: none;
+  color: var(--ifm-color-emphasis-700);
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.info-list-container h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
+.view-button:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.view-button.active {
   background-color: var(--ifm-color-primary);
+  color: white;
 }
 
-.empty-list {
-  padding: 3rem 2rem;
-  text-align: center;
+/* 导入导出按钮 */
+.import-export-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* 导入表单 */
+.import-form-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
   background: var(--ifm-card-background-color);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--ifm-color-emphasis-200);
 }
 
-.empty-list p {
-  color: var(--ifm-color-emphasis-600);
-  font-size: 1.1rem;
-  margin: 0;
+.import-form-container h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
-.info-list {
+.import-form-container textarea {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+
+.import-form-container textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.import-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 列表视图样式 */
+.info-list.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-list.card-view {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
 }
 
-.info-card {
+.info-item.info-row {
   background: var(--ifm-card-background-color);
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid var(--ifm-color-emphasis-200);
+  transition: box-shadow 0.3s ease;
+  padding: 0.75rem 1rem;
 }
 
-.info-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.info-item.info-row:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.info-row-content {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-row-type {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.info-row-name {
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.info-row-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.info-row-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button-small {
+  background: none;
+  border: none;
+  color: var(--ifm-color-emphasis-600);
+  padding: 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.action-button-small:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.action-button-small.edit:hover {
+  color: var(--ifm-color-primary);
+}
+
+.action-button-small.delete:hover {
+  color: #dc3545;
+}
+
+.copy-button-small {
+  background: none;
+  border: none;
+  color: var(--ifm-color-emphasis-600);
+  padding: 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.copy-button-small:hover {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-primary);
+}
+
+/* 保持原有卡片样式 */
+.info-item.info-card {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.2s;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
 }
 
 .info-card-header {
