@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
-import Layout from '@theme/Layout';
 import { FaPlay, FaPlus, FaTrash, FaCog } from 'react-icons/fa';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { json } from '@codemirror/lang-json';
-import './api.css';
-import ToolSidebar from '../../components/ToolSidebar';
+import './index.css';
 
 interface ApiDefinition {
   id: string;
@@ -246,9 +244,8 @@ export default function ApiPage(): JSX.Element {
   const selectedApi = apis.find(api => api.id === selectedApiId);
 
   return (
-    <Layout title="API 测试工具" description="API测试工具">
+    <div>
       <div className="tool-layout">
-        <ToolSidebar />
         <div className="tool-content">
           <div className="tool-header">
             <div className="breadcrumbs">
@@ -457,6 +454,6 @@ export default function ApiPage(): JSX.Element {
           </div>
         </div>
       )}
-    </Layout>
+    </div>
   );
 }

@@ -45,16 +45,19 @@ export const tools: Tool[] = [
 
 interface ToolSidebarProps {
   className?: string;
+  onToolSelect?: (toolId: string) => void;
 }
 
-export default function ToolSidebar({ className = '' }: ToolSidebarProps): JSX.Element {
+export default function ToolSidebar({ className = '', onToolSelect }: ToolSidebarProps): JSX.Element {
   const location = useLocation();
   const history = useHistory();
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Extract the current tool ID from the URL hash
+  const hash = location.hash ? location.hash.substring(1) : '';
   const currentPath = location.pathname;
-  const selectedTool = tools.find(t => t.path === currentPath)?.id;
+  const selectedTool = hash || tools.find(t => t.path === currentPath)?.id || '';
 
   // Check if screen is mobile
   useEffect(() => {
@@ -72,9 +75,16 @@ export default function ToolSidebar({ className = '' }: ToolSidebarProps): JSX.E
   }, []);
 
   const handleToolSelect = (toolId: string) => {
-    const tool = tools.find(t => t.id === toolId);
-    if (tool) {
-      history.push(tool.path);
+    if (onToolSelect) {
+      onToolSelect(toolId);
+    }
+    
+    // Update URL hash
+    history.push(`/tool/#${toolId}`);
+    
+    // If on mobile, collapse the sidebar after selection
+    if (isMobile) {
+      setIsExpanded(false);
     }
   };
 
