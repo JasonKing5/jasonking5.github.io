@@ -1,0 +1,27 @@
+.smart-finance-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tool-description {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.placeholder-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+.coming-soon {
+  font-size: 1.5rem;
+  color: var(--ifm-color-emphasis-600);
+  text-align: center;
+  padding: 2rem;
+}

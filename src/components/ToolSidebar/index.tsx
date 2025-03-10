@@ -51,22 +51,20 @@ interface ToolSidebarProps {
 export default function ToolSidebar({ className = '', onToolSelect }: ToolSidebarProps): JSX.Element {
   const location = useLocation();
   const history = useHistory();
-  const [isExpanded, setIsExpanded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   // Extract the current tool ID from the URL hash
   const hash = location.hash ? location.hash.substring(1) : '';
   const currentPath = location.pathname;
   const selectedTool = hash || tools.find(t => t.path === currentPath)?.id || '';
+  
+  // Check if the sidebar is collapsed based on the className prop
+  const isExpanded = !className.includes('collapsed');
 
   // Check if screen is mobile
   useEffect(() => {
     const checkScreenSize = () => {
-      const isMobileView = window.innerWidth < 768;
-      setIsMobile(isMobileView);
-      if (isMobileView) {
-        setIsExpanded(false);
-      }
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkScreenSize();
@@ -81,42 +79,31 @@ export default function ToolSidebar({ className = '', onToolSelect }: ToolSideba
     
     // Update URL hash
     history.push(`/tool/#${toolId}`);
-    
-    // If on mobile, collapse the sidebar after selection
-    if (isMobile) {
-      setIsExpanded(false);
-    }
   };
 
+  if (!isExpanded) {
+    return <div className={`tool-sidebar ${className}`}></div>;
+  }
+
   return (
-    <div className={`tool-sidebar ${isExpanded ? 'expanded' : 'collapsed'} ${className}`}>
+    <div className={`tool-sidebar ${className}`}>
       <div className="sidebar-header">
-        {isExpanded && <h2>工具集</h2>}
-        <button
-          className="toggle-button"
-          onClick={() => setIsExpanded(!isExpanded)}
-          title={isExpanded ? '收起侧边栏' : '展开侧边栏'}
-        >
-          {isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
-        </button>
+        <h2>工具集</h2>
       </div>
-      {isExpanded && (
-        <div className="sidebar-menu">
-          {tools.map((tool) => (
-            <div
-              key={tool.id}
-              className={`sidebar-item ${selectedTool === tool.id ? 'active' : ''}`}
-              onClick={() => handleToolSelect(tool.id)}
-            >
-              <div className="sidebar-item-icon">{tool.icon}</div>
-              <div className="sidebar-item-text">
-                <div className="title">{tool.title}</div>
-                <div className="description">{tool.description}</div>
-              </div>
+      <div className="sidebar-menu">
+        {tools.map((tool) => (
+          <div
+            key={tool.id}
+            className={`sidebar-item ${selectedTool === tool.id ? 'active' : ''}`}
+            onClick={() => handleToolSelect(tool.id)}
+          >
+            <div className="sidebar-item-icon">{tool.icon}</div>
+            <div className="sidebar-item-text">
+              <div className="title">{tool.title}</div>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

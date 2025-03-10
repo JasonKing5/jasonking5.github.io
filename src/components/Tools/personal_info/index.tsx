@@ -21,7 +21,6 @@ import {
   FaUpload
 } from 'react-icons/fa';
 import './index.css';
-import ToolSidebar from '../../ToolSidebar';
 
 // 定义个人信息类型
 interface PersonalInfo {
