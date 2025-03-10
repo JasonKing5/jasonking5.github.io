@@ -13,20 +13,23 @@ export default function Tool(): JSX.Element {
         <ToolSidebar />
         <div className="tool-content">
           <div className="tool-welcome">
-            <h1>欢迎使用工具集</h1>
-            <p>请选择要使用的工具</p>
+            <div className="welcome-header">
+              <h1>欢迎使用工具集</h1>
+              <p className="welcome-description">这里提供了一系列实用工具，帮助您提高工作效率</p>
+            </div>
             <div className="tool-grid">
               {tools.map((tool) => (
-                <div
+                <a
                   key={tool.id}
                   className="tool-card"
-                  onClick={() => window.location.href === tool.path}
-                  onKeyUp={(e) => e.preventDefault()}
+                  href={tool.path}
                 >
                   <div className="tool-card-icon">{tool.icon}</div>
-                  <h3>{tool.title}</h3>
-                  <p>{tool.description}</p>
-                </div>
+                  <div className="tool-card-content">
+                    <h3>{tool.title}</h3>
+                    <p>{tool.description}</p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>

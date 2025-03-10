@@ -5,6 +5,7 @@
 .tool-layout {
   display: flex;
   min-height: calc(100vh - var(--ifm-navbar-height));
+  background-color: var(--ifm-color-emphasis-0);
 }
 
 .tool-sidebar {
@@ -69,10 +70,45 @@
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+  transition: all 0.3s ease;
 }
 
 .tool-welcome {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.welcome-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.welcome-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.welcome-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--ifm-color-primary);
+  border-radius: 2px;
+}
+
+.welcome-description {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -85,34 +121,76 @@
 
 .tool-card {
   background: var(--ifm-card-background-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.75rem;
+  transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  height: 100%;
 }
 
 .tool-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: var(--ifm-color-primary-lighter);
+}
+
+.tool-card-icon {
+  color: var(--ifm-color-primary);
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.tool-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .tool-card h3 {
-  margin: 0.5rem 0;
-  font-size: 1.25rem;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.35rem;
+  font-weight: 600;
   color: var(--ifm-heading-color);
 }
 
 .tool-card p {
   margin: 0;
   color: var(--ifm-color-emphasis-700);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
+  flex: 1;
 }
 
-.tool-card-icon {
-  color: var(--ifm-color-primary);
-  font-size: 2rem;
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tool-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .welcome-header h1 {
+    font-size: 2rem;
+  }
+  
+  .welcome-description {
+    font-size: 1rem;
+  }
+  
+  .tool-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  
+  .tool-card {
+    padding: 1.25rem;
+  }
 }

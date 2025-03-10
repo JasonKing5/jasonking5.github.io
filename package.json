@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "start:en": "npm run start -- --locale en",
+    "dev": "docusaurus start",
+    "dev:en": "npm run start -- --locale en",
     "build": "docusaurus build --config docusaurus.config.ts",
     "build:en": "npm run build -- --locale en",
     "write:en": "npm run write-translations -- --locale en",

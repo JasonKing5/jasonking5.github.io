@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useHistory } from '@docusaurus/router';
-import { FaCode, FaCalculator, FaChevronLeft, FaChevronRight, FaAddressCard } from 'react-icons/fa';
+import { FaCode, FaCalculator, FaChevronLeft, FaChevronRight, FaAddressCard, FaBars } from 'react-icons/fa';
 import { MdApi } from 'react-icons/md';
 import './styles.css';
 
@@ -51,9 +51,25 @@ export default function ToolSidebar({ className = '' }: ToolSidebarProps): JSX.E
   const location = useLocation();
   const history = useHistory();
   const [isExpanded, setIsExpanded] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const currentPath = location.pathname;
   const selectedTool = tools.find(t => t.path === currentPath)?.id;
+
+  // Check if screen is mobile
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const isMobileView = window.innerWidth < 768;
+      setIsMobile(isMobileView);
+      if (isMobileView) {
+        setIsExpanded(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const handleToolSelect = (toolId: string) => {
     const tool = tools.find(t => t.id === toolId);
@@ -65,7 +81,7 @@ export default function ToolSidebar({ className = '' }: ToolSidebarProps): JSX.E
   return (
     <div className={`tool-sidebar ${isExpanded ? 'expanded' : 'collapsed'} ${className}`}>
       <div className="sidebar-header">
-        <h2 style={{ display: isExpanded ? 'block' : 'none' }}>工具集</h2>
+        {isExpanded && <h2>工具集</h2>}
         <button
           className="toggle-button"
           onClick={() => setIsExpanded(!isExpanded)}
@@ -74,24 +90,23 @@ export default function ToolSidebar({ className = '' }: ToolSidebarProps): JSX.E
           {isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
         </button>
       </div>
-      <div className="sidebar-menu">
-        {tools.map((tool) => (
-          <div
-            key={tool.id}
-            className={`sidebar-item ${selectedTool === tool.id ? 'active' : ''}`}
-            onClick={() => handleToolSelect(tool.id)}
-            title={!isExpanded ? `${tool.title} - ${tool.description}` : undefined}
-          >
-            <div className="sidebar-item-icon">{tool.icon}</div>
-            {isExpanded && (
+      {isExpanded && (
+        <div className="sidebar-menu">
+          {tools.map((tool) => (
+            <div
+              key={tool.id}
+              className={`sidebar-item ${selectedTool === tool.id ? 'active' : ''}`}
+              onClick={() => handleToolSelect(tool.id)}
+            >
+              <div className="sidebar-item-icon">{tool.icon}</div>
               <div className="sidebar-item-text">
                 <div className="title">{tool.title}</div>
                 <div className="description">{tool.description}</div>
               </div>
-            )}
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
