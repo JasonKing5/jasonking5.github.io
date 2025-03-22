@@ -30,14 +30,16 @@ const parseCurl = (curlCommand: string): { method: string; path: string } => {
   // Extract the path from the first line of curl command
   const firstLine = curlCommand.split('\n')[0].trim();
   const methodMatch = firstLine.match(/-X\s+(\w+)/);
+  
+  // 更新正则表达式以匹配可能包含 <baseUrl> 的路径
   const pathMatch = firstLine.match(/curl -X \w+ ["']?([^"'\s\\]+)["']?/);
   const method = methodMatch?.[1] || 'GET';
   const path = pathMatch?.[1] || '';
   
-  // Return the path, ensuring it starts with a forward slash
+  // 注意：这里不再确保路径以 / 开头，因为可能包含完整 URL
   return {
     method,
-    path: path.startsWith('/') ? path : `/${path}`
+    path
   };
 };
 
@@ -71,7 +73,7 @@ ${headers.map(h => `    '${h.split(': ')[0]}': '${h.split(': ')[1]}'`).join(',\n
 
 const DEFAULT_BASE_URL = 'http://localhost:4000/api';
 
-const executeApi = async (curlCommand: string, baseUrl: string = DEFAULT_BASE_URL): Promise<ApiResponse> => {
+const executeApi = async (curlCommand: string, baseUrl: string): Promise<ApiResponse> => {
   try {
     const method = curlCommand.match(/-X\s+(\w+)/)?.[1] || 'GET';
     const path = parseCurl(curlCommand).path;
@@ -86,7 +88,8 @@ const executeApi = async (curlCommand: string, baseUrl: string = DEFAULT_BASE_UR
     const bodyMatch = curlCommand.match(/-d\s+['"]({[^}]+})["']/);
     const body = bodyMatch ? JSON.parse(bodyMatch[1]) : undefined;
 
-    const fullUrl = `${baseUrl}${path}`;
+    // 由于 path 可能已经包含完整 URL，所以不要总是拼接 baseUrl
+    const fullUrl = /^(http|https|ws|wss|ftp):\/\//.test(path) ? path : (path.startsWith('/') ? `${baseUrl}${path}` : `${baseUrl}/${path}`);
 
     const response = await fetch(fullUrl, {
       method,
@@ -112,7 +115,7 @@ const executeApi = async (curlCommand: string, baseUrl: string = DEFAULT_BASE_UR
 
 const DEFAULT_API: ApiDefinition = {
   id: 'default',
-  code: `curl -X POST /auth/login \\
+  code: `curl -X POST <baseUrl>/auth/login \\
   -H "Content-Type: application/json" \\
   -d '{"username":"root","password":"root123"}'`,
   format: 'curl',
@@ -122,7 +125,7 @@ const DEFAULT_API: ApiDefinition = {
 
 const DEFAULT_NEW_API: ApiDefinition = {
   id: 'new',
-  code: `curl -X GET /api/example \\
+  code: `curl -X GET <baseUrl>/api/example \\
   -H "Content-Type: application/json"`,
   format: 'curl',
   expanded: true,
@@ -192,6 +195,13 @@ export default function ApiPage(): JSX.Element {
     setGlobalVars(globalVars.filter((_, i) => i !== index));
   };
 
+  const resetGlobalVars = () => {
+    // 重置为默认 baseUrl，并移除其他项
+    setGlobalVars([
+      { key: 'baseUrl', value: DEFAULT_BASE_URL },
+    ]);
+  };
+
   const addNewApi = () => {
     const tempId = Date.now().toString();
     const newApiWithId = {
@@ -233,7 +243,7 @@ export default function ApiPage(): JSX.Element {
   const handleExecute = async (api: ApiDefinition) => {
     const processedCommand = replaceVariables(api.code);
     const baseUrlVar = globalVars.find(v => v.key === 'baseUrl');
-    const baseUrl = baseUrlVar?.value || DEFAULT_BASE_URL;
+    const baseUrl = baseUrlVar?.value;
     const response = await executeApi(processedCommand, baseUrl);
     setResponses(prev => ({
       ...prev,
@@ -387,57 +397,37 @@ export default function ApiPage(): JSX.Element {
               <button
                 type="button"
                 className="button button-secondary"
+                onClick={resetGlobalVars}
+              >
+                重置
+              </button>
+              <button
+                type="button"
+                className="button button-secondary"
                 onClick={() => setShowGlobalVarsModal(false)}
               >
                 关闭
               </button>
             </div>
             <div className="vars-list">
-              <div className="var-item baseurl-item">
-                <input
-                  type="text"
-                  value={globalVars.find(v => v.key === 'baseUrl')?.value || DEFAULT_BASE_URL}
-                  onChange={(e) => {
-                    const index = globalVars.findIndex(v => v.key === 'baseUrl');
-                    if (index >= 0) {
-                      updateGlobalVar(index, 'baseUrl', e.target.value);
-                    } else {
-                      setGlobalVars([...globalVars, { key: 'baseUrl', value: e.target.value }]);
-                    }
-                  }}
-                  placeholder="API Base URL"
-                />
-                <button
-                  type="button"
-                  className="button button-secondary"
-                  onClick={() => {
-                    const index = globalVars.findIndex(v => v.key === 'baseUrl');
-                    if (index >= 0) {
-                      updateGlobalVar(index, 'baseUrl', DEFAULT_BASE_URL);
-                    }
-                  }}
-                >
-                  重置
-                </button>
-              </div>
-              {globalVars.filter(v => v.key !== 'baseUrl').map((variable, index) => (
+              {globalVars.map((variable, index) => (
                 <div key={index} className="var-item">
                   <input
                     type="text"
                     value={variable.key}
-                    onChange={(e) => updateGlobalVar(index + 1, e.target.value, variable.value)}
+                    onChange={(e) => updateGlobalVar(index, e.target.value, variable.value)}
                     placeholder="变量名"
                   />
                   <input
                     type="text"
                     value={variable.value}
-                    onChange={(e) => updateGlobalVar(index + 1, variable.key, e.target.value)}
+                    onChange={(e) => updateGlobalVar(index, variable.key, e.target.value)}
                     placeholder="变量值"
                   />
                   <button
                     type="button"
                     className="button button-secondary"
-                    onClick={() => deleteGlobalVar(index + 1)}
+                    onClick={() => deleteGlobalVar(index)}
                   >
                     <FaTrash />
                   </button>
