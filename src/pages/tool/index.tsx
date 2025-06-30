@@ -12,7 +12,7 @@ import './index.css';
 function ToolPage(): JSX.Element {
   const location = useLocation();
   const history = useHistory();
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
