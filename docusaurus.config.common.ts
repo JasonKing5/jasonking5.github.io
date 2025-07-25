@@ -5,18 +5,10 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
-  scripts: [
-    {
-      src: 'https://analytics.codefe.cn/script.js',
-      async: true,
-      defer: true,
-      'data-website-id': 'cbf6350d-951c-41c6-ad0d-c96912882a84',
-    },
-  ],
   title: 'Code FE',
   tagline: 'Code FE',
   favicon: 'img/favicon.ico',
-
+  
   // Set the production url of your site here
   url: 'https://www.codefe.cn',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -27,15 +19,15 @@ const config: Config = {
   // true: add trailing slashes to URLs/links, and emit /docs/myDoc/index.html for /docs/myDoc.md
   // false: remove trailing slashes from URLs/links, and emit /docs/myDoc.html for /docs/myDoc.md
   trailingSlash: true,
-
+  
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Code FE', // Usually your GitHub org/user name.
   projectName: 'Code FE', // Usually your repo name.
-
+  
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
+  
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -44,13 +36,23 @@ const config: Config = {
     locales: ['en'],
     // locales: ['zh-CN', 'en'],
   },
-
+  
+  scripts: [
+    {
+      src: 'https://analytics.codefe.cn/script.js',
+      async: true,
+      defer: true,
+      'data-website-id': 'cbf6350d-951c-41c6-ad0d-c96912882a84',
+    },
+  ],
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -161,6 +163,55 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
+      links: [
+        {
+          title: 'CodeFE',
+          items: [
+            {
+              label: 'common',
+              to: '/docs/category/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/',
+            },
+            {
+              label: 'front-end',
+              to: '/docs/category/internet/',
+            },
+            {
+              label: 'back-end',
+              to: '/docs/category/nodejs-开发实战/',
+            },
+          ],
+        },
+        {
+          title: 'team',
+          items: [
+            {
+              label: 'Jason 庄生',
+              href: 'https://space.bilibili.com/286327785',
+            },
+            {
+              label: 'Dixin 帝心',
+              href: 'https://space.bilibili.com/110937561',
+            },
+          ],
+        },
+        {
+          title: 'more',
+          items: [
+            {
+              label: 'CodeFE',
+              href: 'https://www.codefe.cn/',
+            },
+            {
+              label: 'HMXY',
+              href: 'https://hm.codefe.cn/',
+            },
+            {
+              label: 'Poetry',
+              href: 'https://poetry.codefe.cn/',
+            },
+          ],
+        },
+      ],
       copyright: `ICP备案<a href=" https://beian.miit.gov.cn/" target="_blank" style="margin-left: 5px; margin-right: 20px; color: #b5b5b5">豫ICP备2022004823号-1</a> Copyright ${new Date().getFullYear()} Code FE`,
     },
     prism: {

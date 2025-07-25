@@ -230,7 +230,7 @@ This is the [quickest way](https://codesandbox.io/s/formik-v2-tutorial-start-s04
 
 ### Setup Option 2: Local Development Environment
 
-[formik-examples](https://github.com/JosonKing/formik-examples)\*\*\*\*
+[formik-examples](https://github.com/JasonKing5/formik-examples)\*\*\*\*
 
 ```javascript
 npm create-react-app formik-examples
@@ -1392,4 +1392,4 @@ To submit a form in Formik, you need to somehow fire off the provided `handleSub
 
 # Examples
 
-[github:formik-examples](https://github.com/JosonKing/formik-examples)
+[github:formik-examples](https://github.com/JasonKing5/formik-examples)

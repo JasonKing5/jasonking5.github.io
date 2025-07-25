@@ -1,4 +1,4 @@
-.tool-layout {
+/* .tool-layout {
   display: flex;
   min-height: calc(100vh - var(--ifm-navbar-height));
   background-color: #f8f9fa;
@@ -35,7 +35,6 @@
   color: var(--ifm-color-emphasis-600);
 }
 
-/* 页面标题 */
 h1 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -54,7 +53,6 @@ h1::after {
   background-color: var(--ifm-color-primary);
 }
 
-/* 表单样式 */
 .info-form-container {
   margin-bottom: 2rem;
   padding: 1.5rem;
@@ -196,7 +194,6 @@ h1::after {
   background-color: var(--ifm-color-emphasis-300);
 }
 
-/* 搜索和过滤样式 */
 .search-filter-container {
   display: flex;
   flex-wrap: wrap;
@@ -269,7 +266,6 @@ h1::after {
   box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
 }
 
-/* 视图切换按钮 */
 .view-actions {
   display: flex;
   gap: 0.5rem;
@@ -297,13 +293,11 @@ h1::after {
   color: white;
 }
 
-/* 导入导出按钮 */
 .import-export-actions {
   display: flex;
   gap: 0.5rem;
 }
 
-/* 导入表单 */
 .import-form-container {
   margin-bottom: 2rem;
   padding: 1.5rem;
@@ -340,7 +334,6 @@ h1::after {
   gap: 0.75rem;
 }
 
-/* 列表视图样式 */
 .info-list.list-view {
   display: flex;
   flex-direction: column;
@@ -441,7 +434,6 @@ h1::after {
   color: var(--ifm-color-primary);
 }
 
-/* 保持原有卡片样式 */
 .info-item.info-card {
   background: var(--ifm-card-background-color);
   border-radius: 12px;
@@ -659,7 +651,6 @@ h1::after {
   }
 }
 
-/* 响应式调整 */
 @media (max-width: 768px) {
   .personal-info-container {
     padding: 1.25rem;
@@ -676,4 +667,4 @@ h1::after {
   .search-filter-container {
     flex-direction: column;
   }
-}
+} */

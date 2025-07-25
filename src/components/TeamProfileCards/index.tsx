@@ -118,7 +118,7 @@ export function ActiveTeamRow(): JSX.Element {
         name="庄生"
         bilibiliUrl="https://space.bilibili.com/286327785"
         avatarUrl="https://foruda.gitee.com/avatar/1676974431817687676/1529009_josoncoder_1578953753.png!avatar200"
-        giteeUrl="https://gitee.com/josonking">
+        giteeUrl="https://gitee.com/jasonking5">
         <div>
           Web全栈开发工程师 🧐 钟爱 React 技术栈，对底层技术和浏览器原理略有研究 👋 喜欢钻研新技术 🔥 
         </div>
