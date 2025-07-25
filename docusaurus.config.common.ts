@@ -5,6 +5,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
+  scripts: [
+    {
+      src: 'https://analytics.codefe.cn/script.js',
+      async: true,
+      defer: true,
+      'data-website-id': 'cbf6350d-951c-41c6-ad0d-c96912882a84',
+    },
+  ],
   title: 'Code FE',
   tagline: 'Code FE',
   favicon: 'img/favicon.ico',
