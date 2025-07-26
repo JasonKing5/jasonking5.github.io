@@ -37,7 +37,8 @@ const AnalyticsStats: React.FC = () => {
   }, []);
 
   if (isLoading) return <div style={{ textAlign: 'center', padding: '10px 0' }}>加载中...</div>;
-  if (error) return <div style={{ textAlign: 'center', color: 'red' }}>{error}</div>;
+  if (error) return null;
+  // if (error) return <div style={{ textAlign: 'center', color: 'red' }}>{error}</div>;
   if (!stats) return null;
 
   const formatNumber = (num: number): string => {
