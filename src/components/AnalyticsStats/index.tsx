@@ -8,7 +8,7 @@ interface StatsData {
   visits: { value: number };
 }
 
-const analyticsServerUrl = 'http://localhost:4002';
+const analyticsServerUrl = 'https://api.analytics.codefe.cn';
 
 const AnalyticsStats: React.FC = () => {
   const [stats, setStats] = useState<StatsData | null>(null);
