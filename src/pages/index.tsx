@@ -8,7 +8,6 @@ import useBaseUrl, { useBaseUrlUtils } from "@docusaurus/useBaseUrl";
 import Heading from "@theme/Heading";
 import Tweet from "@site/src/components/Tweet";
 import React, { useState } from "react";
-
 import styles from "./index.module.css";
 import { Descriptions } from "antd";
 
@@ -140,7 +139,7 @@ export default function Home() {
                 efficiency.
               </p>
             </div>
-            <img src="./img/author.jpg" alt="Joson" className={styles.avatar} />
+            <img src="./img/author.jpg" alt="Jason" className={styles.avatar} />
           </Link>
 
           {group.map((item) => (
@@ -158,6 +157,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      
     </Layout>
   );
 }

@@ -1,0 +1,14 @@
+.footerWrapper {
+  position: relative;
+}
+
+.analyticsContainer {
+  background-color: #303846;
+  padding-bottom: .5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  bottom: -10px;
+}
