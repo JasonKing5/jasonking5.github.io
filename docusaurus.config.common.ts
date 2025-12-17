@@ -42,7 +42,7 @@ const config: Config = {
       src: 'https://analytics.codefe.cn/script.js',
       async: true,
       defer: true,
-      'data-website-id': 'cbf6350d-951c-41c6-ad0d-c96912882a84',
+      'data-website-id': 'b02f2e6d-d898-4f11-913a-0a94e31dbf78',
     },
   ],
   presets: [
