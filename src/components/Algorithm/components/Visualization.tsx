@@ -80,7 +80,7 @@ const Visualization: React.FC<VisualizationProps> = ({ data, currentStep, isSort
     const duration = 500; // 动画持续时间
     
     const xScale = d3.scaleBand()
-      .domain(data.map((_, i) => i.toString()))
+      .domain(data.map((_, i) => i?.toString()))
       .range([0, width])
       .padding(data.length > 50 ? 0.1 : data.length > 30 ? 0.2 : 0.3);  // 根据数据量动态调整间距
 
@@ -101,18 +101,18 @@ const Visualization: React.FC<VisualizationProps> = ({ data, currentStep, isSort
       .call(d3.axisLeft(yScale));
 
     const bars = g.selectAll<SVGGElement, number>('.bar-group')
-      .data(data, (_, i) => i.toString());
+      .data(data, (_, i) => i?.toString());
 
     bars.exit()
       .transition()
       .duration(duration)
-      .attr('transform', (_, i) => `translate(${xScale(i.toString())},${height})`)
+      .attr('transform', (_, i) => `translate(${xScale(i?.toString())},${height})`)
       .remove();
 
     const barsEnter = bars.enter()
       .append('g')
       .attr('class', 'bar-group')
-      .attr('transform', (_, i) => `translate(${xScale(i.toString())},${height})`);
+      .attr('transform', (_, i) => `translate(${xScale(i?.toString())},${height})`);
 
     barsEnter.append('rect')
       .attr('class', 'bar')
@@ -139,11 +139,11 @@ const Visualization: React.FC<VisualizationProps> = ({ data, currentStep, isSort
 
     // 计算每个元素的目标位置
     const getTargetX = (index: number) => {
-      if (!hasSwap) return xScale(index.toString());
-      if (!shouldSwap) return xScale(index.toString());
-      if (index === i1) return xScale(i2.toString());
-      if (index === i2) return xScale(i1.toString());
-      return xScale(index.toString());
+      if (!hasSwap) return xScale(index?.toString());
+      if (!shouldSwap) return xScale(index?.toString());
+      if (index === i1) return xScale(i2?.toString());
+      if (index === i2) return xScale(i1?.toString());
+      return xScale(index?.toString());
     };
 
     // 获取元素的当前位置
@@ -159,7 +159,7 @@ const Visualization: React.FC<VisualizationProps> = ({ data, currentStep, isSort
       const element = d3.select(this);
       const currentX = getCurrentX(element);
       if (currentX === null) {
-        element.attr('transform', `translate(${xScale(i.toString())},0)`);
+        element.attr('transform', `translate(${xScale(i?.toString())},0)`);
       }
     });
 
