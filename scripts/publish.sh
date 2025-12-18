@@ -32,4 +32,3 @@ echo "sync website"
 sudo rsync -av --delete /var/repo/jasonking5.github.io/build/ /var/www/codefe.cn/
 
 echo "[SUCCESS] deploy"
-
