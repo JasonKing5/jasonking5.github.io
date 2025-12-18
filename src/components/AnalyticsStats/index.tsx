@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faUser, faRotate } from '@fortawesome/free-solid-svg-icons';
 
 interface StatsData {
-  pageviews: { value: number };
-  visitors: { value: number };
-  visits: { value: number };
+  pageviews: number;
+  visitors: number;
+  visits: number;
 }
 
 const analyticsServerUrl = 'https://api-analytics.codefe.cn';
@@ -59,19 +59,19 @@ const AnalyticsStats: React.FC = () => {
       <span>
         本站总浏览量
         <FontAwesomeIcon icon={faEye} style={{ margin: '0 4px' }} />
-        {formatNumber(stats.pageviews.value)}
+        {formatNumber(stats.pageviews)}
       </span>
       <span>|</span>
       <span>
         独立访客
         <FontAwesomeIcon icon={faUser} style={{ margin: '0 4px' }} />
-        {formatNumber(stats.visitors.value)}
+        {formatNumber(stats.visitors)}
       </span>
       <span>|</span>
       <span>
         访问次数
         <FontAwesomeIcon icon={faRotate} style={{ margin: '0 4px' }} />
-        {formatNumber(stats.visits.value)}
+        {formatNumber(stats.visits)}
       </span>
     </div>
   );
